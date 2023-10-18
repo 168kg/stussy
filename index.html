@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>스투시</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/스투시.css">
+
+    <script src="lib/jquery-3.7.0.min.js"></script>
+    <script src="lib/jquery-ui.min.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        $(function () {
+
+            
+
+            setTimeout(function () {
+                $('.loading').fadeOut()
+            }, 1000);
+        
+
+            $('.qna > img').click(function(){
+                $('.qna_inner').fadeIn().css({
+                    'opacity' : '1',
+                    'z-index' : '999999999'
+                });
+                $('.qna > img').css({
+                    'opacity' : '0',
+                    'z-index' : '-99999'
+                })
+                $('.qna div img').css({
+                    'opacity' : '1'
+                });
+            }); //.qna.click end
+            
+            $('.qna div img').click(function(){
+                $('.qna_inner').css({
+                    'opacity' : '0',
+                    'z-index' : '-9999999999'
+                });
+                $(this).css({
+                    'opacity' : '0'
+                });
+                $('.qna > img').css({
+                    'opacity' : '1',
+                    'z-index' : '99999'
+                })
+
+            }); //.qna div img end
+
+            let bb = $('header .inner .right_menu ul .bb a');
+            let bag = $('header .inner .right_menu .bag');
+            let bagClose = $('header .inner .right_menu .bag .title p');
+            let ss = $('header .inner .right_menu ul .ss a');
+            let close = $('header .inner .right_menu ul .search .close');
+
+            $(bb).click(function () {
+                $(bag).animate({
+                    'right': '0'
+                })
+                $('body').addClass('on')
+            });//bb.click end
+
+            $(bagClose).click(function () {
+                $(bag).animate({
+                    'right': '-100%'
+                })
+                $('body').removeClass('on')
+            });//bagClose.click end
+
+
+            $(ss).click(function () {
+                $(search).slideDown();
+            });//ss.click end
+
+            $(close).click(function () {
+                $(search).slideUp();
+            });//close.click end
+
+            $('body a').click(function () {
+                return false;
+            });// body > a .click end
+
+            //let main = $('.main_visual').offset().top;
+            let headerTop = $('.cont01').offset().top;
+            let depth02 = $('header .inner nav .gnb .depth01 .depth02');
+            let search = $('header .inner .right_menu ul .search');
+
+            $(window).scroll(function () {
+                let scrollBar = $(window).scrollTop()
+                if (headerTop < scrollBar) {
+                    $('header').addClass('on')
+                    depth02.addClass('on')
+                    /* search.addClass('on') */
+                    $('.qna').fadeIn().css({
+                        'display': 'flex'
+                    })
+                } else {
+                    $('header').removeClass('on')
+                    depth02.removeClass('on')
+                    /* search.removeClass('on') */
+                    $('.qna').fadeOut();
+                }
+
+                /*       if (headerTop < scrollBar) {
+                          $('qna').fadeIn().css({
+                              'display' : 'flex'
+                          })
+                      } else {
+                          $('qna').fadeOut();
+                      }
+       */
+            });//window.scroll end
+
+            var swiper = new Swiper(".item", {
+                slidesPerView: 5,
+                spaceBetween: 30,
+                freeMode: true,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+
+
+
+        });// jquery end
+
+    </script>
+</head>
+
+<body>
+
+    <div class="loading">
+        <img src="img/01스투시/로딩.jpg" alt="">
+    </div><!-- .loading end -->
+
+    <header>
+        <div class="inner">
+            <!-- <div class="left_menu"> -->
+            <nav>
+                <ul class="gnb">
+                    <li class="depth01">
+                        <a href="#">SHOP</a>
+                        <ul class="depth02">
+                            <li><a href="#">NEW</a></li>
+                            <li><a href="#">TEES</a></li>
+                            <li><a href="#">SHORTS</a></li>
+                            <li><a href="#">SWEATS</a></li>
+                            <li><a href="#">PANTS</a></li>
+                            <li><a href="#">KNITS</a></li>
+                            <li><a href="#">OUTERWEAR</a></li>
+                            <li><a href="#">HEADWEAR</a></li>
+                            <li><a href="#">ACCESSORIES</a></li>
+                            <li><a href="#">EYEWEAR</a></li>
+                            <li><a href="#">ALL</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">FEATURES</a>
+                    </li><!-- .depth01 end -->
+
+                    <li class="depth01">
+                        <a href="#">SUPPORT</a>
+                        <ul class="depth02">
+                            <li><a href="#">NOTICE</a></li>
+                            <li><a href="#">COUSTOMER SUPPORY</a></li>
+                            <li><a href="#">SHIPPING & RETURNS</a></li>
+                            <li><a href="#">SIZE GUIDE</a></li>
+                            <li><a href="#">CAREERS</a></li>
+                            <li><a href="#">LEGAL</a></li>
+                        </ul><!-- .depth02 end -->
+                    </li><!-- .depth01 end -->
+                </ul><!-- .gnb end -->
+
+            </nav>
+            <!-- </div> --><!-- .left_menu end -->
+            <div class="logo">
+                <img src="img/01스투시/logo.png" alt="로고" />
+            </div><!-- .logo end -->
+
+            <div class="right_menu">
+                <ul>
+                    <li class="ss"><a href="#">SEARCH</a></li>
+                    <div class="search">
+                        <input type="text" placeholder="SEARCH FOR KEYWORDS">
+                        <div class="close">
+                            <p>close</p>
+                        </div><!-- .close end -->
+                    </div><!-- .search end -->
+
+                    <li class="bb"><a href="#">BAG</a></li>
+                </ul>
+                <div class="bag">
+                    <div class="title">
+                        <h3>shopping bag</h3>
+                        <p>close</p>
+                    </div><!-- .title end -->
+                    <div class="txt">
+                        <h3>쇼핑백이 비어 있습니다</h3>
+                        <p>7만원 이상 구매 시 무료 배송 / 제외가 적용됩니다</p>
+                    </div><!-- .txt -->
+                    <div class="box">
+                        <p>계속 쇼핑하기</p>
+                    </div><!-- .box -->
+                </div><!-- .bag end -->
+            </div><!-- .right_menu -->
+        </div><!-- .inner end -->
+    </header>
+
+    <!-------------------------------------- .main_visual --------------------------------------------------------->
+
+    <section class="main_visual">
+
+    </section><!-- .main_visual end -->
+
+    <!-------------------------------------- .cont01 --------------------------------------------------------->
+
+    <section class="cont01">
+        <div class="title">
+            <h3>ITEM</h3>
+        </div><!-- .title end -->
+        <div class="swiper item">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_1.jpg" alt=""></a>
+                    <div>
+                        <h1>VENUS ZIP HOODIE</h1>
+                        <p>₩189,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_2.jpg" alt=""></a>
+                    <div>
+                        <h1>BASIC STÜSSY TEE</h1>
+                        <p>₩68,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_3.jpg" alt=""></a>
+                    <div>
+                        <h1>BIG OL' JEAN OVERDYED</h1>
+                        <p>₩249,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_4.jpg" alt=""></a>
+                    <div>
+                        <h1>8-BALL RUG</h1>
+                        <p>₩178,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_5.jpg" alt=""></a>
+                    <div>
+                        <h1>PLAID NYLON LINER VEST</h1>
+                        <p>₩228,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_6.jpg" alt=""></a>
+                    <div>
+                        <h1>MESH SHORT SURFMAN</h1>
+                        <p>₩133,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_7.jpg" alt=""></a>
+                    <div>
+                        <h1>PIGMENT DYED LOOSE GAUGE SWEATER</h1>
+                        <p>₩219,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_8.jpg" alt=""></a>
+                    <div>
+                        <h1>WORK GLOVES</h1>
+                        <p>₩50,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_9.jpg" alt=""></a>
+                    <div>
+                        <h1>FRANK PLAID ZIP SHIRT</h1>
+                        <p>₩249,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/item_10.jpg" alt=""></a>
+                    <div>
+                        <h1>BIG STOCK BUCKET HAT</h1>
+                        <p>₩78,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+
+                <div class="swiper-slide">
+                    <a href="#"><img src="img/01스투시/itme_11.jpg" alt=""></a>
+                    <div>
+                        <h1>BASIC STÜSSY LS TEE</h1>
+                        <p>₩82,000</p>
+                        <a href="#"><span>MORE</span></a>
+                    </div>
+                </div><!-- .swiper-slide end -->
+            </div><!-- .swiper-wrapper end -->
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div><!-- .swiper .item end -->
+    </section><!-- .cont01 end -->
+
+    <!-------------------------------------- .cont02 --------------------------------------------------------->
+
+    <section class="cont02">
+        <div class="title">
+            <h3>UNISEX</h3>
+        </div><!-- .title end -->
+        <div class="list">
+            <div class="item">
+                <div>
+                    <img class="man" src="img/01스투시/cont01_남1.png" alt="">
+                    <img class="woman" src="img/01스투시/cont01_여1.png" alt="">
+                </div>
+            </div><!-- .item end -->
+
+            <div class="item">
+                <div>
+                    <img class="man" src="img/01스투시/cont01_남2.png" alt="">
+                    <img class="woman" src="img/01스투시/cont01_여2.png" alt="">
+                </div>
+            </div><!-- .item end -->
+
+            <div class="item">
+                <div>
+                    <img class="man" src="img/01스투시/cont01_남3.png" alt="">
+                    <img class="woman" src="img/01스투시/cont01_여3.png" alt="">
+                </div>
+            </div><!-- .item end -->
+        </div><!-- .list end -->
+    </section><!-- .cont02 end -->
+
+    <!-------------------------------------- .cont03 --------------------------------------------------------->
+
+    <section class="cont03">
+        <div class="title">
+            <h3>FALL '23 LOOKBOOK</h3>
+        </div><!-- .title end -->
+        <div class="list">
+            <div class="item">
+                <div>
+                    <img src="img/01스투시/cont03_남.jpg" alt="">
+                </div>
+            </div><!-- .item end -->
+
+            <div class="item">
+                <div>
+                    <img src="img/01스투시/cont03_여.jpg" alt="">
+                </div>
+            </div><!-- .item end -->
+        </div><!-- .list end -->
+    </section><!-- .cont03 end -->
+
+    <!-------------------------------------- .cont04 --------------------------------------------------------->
+
+    <section class="cont04">
+        <div class="title">
+            <h3>HOT</h3>
+        </div><!-- .title end -->
+        <div class="list">
+            <div class="item">
+                <div class="img">
+                    <img class="front" src="img/01스투시/cont04_남_.png" alt="">
+                    <img class="back" src="img/01스투시/cont04_남2_.png" alt="">
+                </div><!-- .img end -->
+                <div class="txt">
+                    <h3>LOOSE GAUGE CARDIGAN</h3>
+                    <p>BLUE</p>
+                    <strong>\ 234,000</strong>
+                    <a href="#"><span>MORE →</span></a>
+                </div><!-- .txt end -->
+            </div><!-- .item end -->
+
+            <div class="item">
+                <div class="img">
+                    <img class="front" src="img/01스투시/cont04_여_.png" alt="">
+                    <img class="back" src="img/01스투시/cont04_여2_.png" alt="">
+                </div><!-- .img end -->
+                <div class="txt">
+                    <h3>PADDED TECH OVER SHIRT</h3>
+                    <p>NATURAL</p>
+                    <strong>\ 265,000</strong>
+                    <a href="#"><span>MORE →</span></a>
+                </div><!-- .txt end -->
+            </div><!-- .item end -->
+        </div><!-- .list end -->
+    </section><!-- .cont04 end -->
+
+    <!-------------------------------------- .cont05 --------------------------------------------------------->
+
+    <section class="cont05">
+
+        <div class="txt_slide">
+            <p>THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF
+                STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp;
+                &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;THE HISTORY OF
+                STÜSSY &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+            </p>
+        </div><!-- .txt_slide end -->
+
+        <div class="list">
+            <div class="item">
+
+                <img src="img/01스투시/cont05_1.jpg" alt="">
+
+                <div>
+                    <h3>STÜSSY & BORN X RAISED</h3>
+                    <p>08 / 09 / 2023</p>
+                </div>
+            </div><!-- .item end -->
+            <div class="item">
+
+                <img src="img/01스투시/cont05_2.jpg" alt="">
+
+                <div>
+                    <h3>STÜSSY OUR LEGACY & CONVERSE</h3>
+                    <p>06 / 27 / 2023</p>
+                </div>
+            </div><!-- .item end -->
+            <div class="item">
+
+                <img src="img/01스투시/cont05_3.jpg" alt="">
+
+                <div>
+                    <h3>STÜSSY & NIKE VANDAL HIGH</h3>
+                    <p>06 / 06 / 2023</p>
+                </div>
+            </div><!-- .item end -->
+            <div class="item">
+
+                <img src="img/01스투시/cont05_4.jpg" alt="">
+
+                <div>
+                    <h3>STÜSSY SUMMER '23 LOOKBOOK</h3>
+                    <p>05 / 09 / 2023</p>
+                </div>
+            </div><!-- .item end -->
+        </div><!-- .list end -->
+    </section><!-- .cont05 end -->
+
+    <!-------------------------------------- footer --------------------------------------------------------->
+
+    <footer>
+        <div>
+            <ul>
+                <li>NEWSLETTER</li>
+                <li>CONTACT</li>
+                <li>ACCOUNT</li>
+                <li>CHAPTERS</li>
+                <li>COUNTRY</li>
+            </ul>
+            <P>코리아트라이브 유한회사 | 대표 BAIK KYUHEE | 사업자등록번호 561-87-00715 | 서울특별시 강남구 대치동 942 해성빌딩 | 통신판매신고번호 제 2018 - 서울서초 -
+                0860
+                호 [사업자정보확인] | 전화 00-30832-10322 | 이메일 support@stussy.co.kr | 개인정보관리책임자 KOREA TRIBE, INC. | 개인정보취급방침</P>
+        </div>
+    </footer>
+
+    <div class="qna">
+        <img src="img/01스투시/q&a.png" alt="">
+        <div>
+            <img src="img/01스투시/icons8-닫기-30.png" alt="">
+        </div>
+    </div><!-- .qna end -->
+
+    <div class="qna_inner">
+        <div class="title">
+            <div class="img">
+                <img src="img/01스투시/logo_2.png" alt="">
+            </div><!-- .img end -->
+            <div class="txt">
+                <h3>STUSSY</h3>
+                <p>운영시간 보기 ></p>
+            </div><!-- .txt end -->
+        </div><!-- .title end -->
+
+        <div class="center">
+            <div class="center_1">
+                <div class="img">
+                    <img src="img/01스투시/logo_2.png" alt="">
+                </div><!-- .img end -->
+                <div class="txt">
+                    <h4>STUSSY</h4>
+                    <p>안녕하세요. 고객님 <strong>STUSSY</strong> 입니다. </br>문의 내용 남기시면 최대한 빠르게 답변 도와드리겠습니다.</p>
+                    <strong>상담 운영 시간</br>...</strong>
+                </div><!-- .txt end -->
+            </div><!-- .center_1 end -->
+
+            <div class="btn">
+                <p>문의하기</p>
+            </div><!-- .btn end -->
+
+            <p><span>●</span> 몇 분 내 답변 받으실 수 있어요</p>
+        </div><!-- .center end -->
+
+        <div class="icon">
+            <div>
+                <img src="img/01스투시/icons8-홈페이지-48.png" alt="">
+                <p>홈</p>
+            </div>
+            <div>
+                <img src="img/01스투시/icons8-대화-48.png" alt="">
+                <p>대화</p>
+            </div>
+            <div>
+                <img src="img/01스투시/icons8-설정-32.png" alt="">
+                <p>설정</p>
+            </div>
+        </div><!-- .icon end -->
+    </div><!-- .qna_inner -->
+</body>
+
+</html>
